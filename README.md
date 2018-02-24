@@ -1,5 +1,7 @@
+# Implementation of storage manager, buffer manager and record manager in database
+
 (1) How to use the Makefile:
-----------------------------------------------------------
+
 1.log in the fourier sever for IIT, cd to the correct address /home/class/fall-17/cs525/tmei1/assign3, or in your linux computer, open the terminal and cd to the address of the "assign3” where you put.
 
 2.Type in "make clean" and click "enter". (make sure no other files except as the above files in the assign3)
@@ -23,15 +25,14 @@ Then continue step 4. Else: repeat step 2.
 4.Type in "make test_run" , Click "enter".(Output the testing result)
 
 5. If you Wanna try again, start from step 2.
-----------------------------------------------------------
 
 
 (2) Functions Introductions:
-----------------------------------------------------------
+
 Assignment#3 Record Manager
 
 **********Table and Record Manager Functions*************
-----------------------------------------------------------
+
 1. initRecordManager (void *mgmtData):
 This function initializes a record manager. Parameter mgmtData is initialized to tableData->mgmtData and storage manager is initialized.
 2. shutdownRecordManager ()
@@ -48,7 +49,7 @@ This function delete the table. Call destroyPageFile function.
 This function returns the number of tuples (records) in the table. The number of tuples stores in the recordManager.
 
 ****Record Functions**********
-----------------------------------------------------------
+
 1. Insert record function, this function used to insert new record into table, and when new record is inserted, the record manager assign an RID to it and inserted the new record. Retrieve data from table first, set an RID for this record, then set data inserted and the offset for the slot, set the free page for current in use and then pin it. Set data to initial point and then find free slot using a defined function, if there are no free page on this page, unpin it and find on another page. When free space found, mark dirty to it, copy new data into it and mark the newly inserted with mark “+”, unpin page after use and return OK.
 
 2. Delete record function, this function used to delete a record from the table. Retrieve data from table first with given table rel, pin the page in use and update free page with id. Get record size and set offset to the slot. Delete the record, mark page dirty that the page has been changed, use “-” to mark this record has been deleted and finally unpin the page after use and return OK.
@@ -59,7 +60,7 @@ This function returns the number of tuples (records) in the table. The number of
 
 
 *******scan functions***********
-----------------------------------------------------------
+
 
 The Scan related functions are used to get all tuples from a table. Starting a scan initializes the RM_ScanHandle data structure passed as an argument to startScan. The next method is made which returns the next tuple that fulfills the scan condition. If NULL is passed as a scan condition, it returns RC_SCAN_CONDITION_NOT_FOUND. next returns RC_RM_NO_MORE_TUPLES once the scan is completed and RC_OK.
 
@@ -73,7 +74,7 @@ closeScan(): Free all schema and if success return RC_OK.
 
 
 *********SCHEMA FUNCTIONS*************
-----------------------------------------------------------
+
 
 These functions are used to return the actual size of records for a given schema and then create a new schema. 
 
@@ -87,7 +88,7 @@ freeSchema()
 Free the schema from the memory. Reset all attributes. Free memory.
 
 *******Attribute Functions**********
-----------------------------------------------------------
+
 These functions are used to get or set the attribute values of a record and create a new record for a given schema. Creating a new record should allocate enough memory to the data field to hold the binary representations for all attributes of this record as determined by the schema.
 
 1.createRecord functions
