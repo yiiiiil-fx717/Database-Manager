@@ -1,22 +1,3 @@
-----------------------------------------------------------
-	README.txt
-                Makefile
-		buffer_mgr.h
-		buffer_mgr_stat.c
-		buffer_mgr_stat.h
-		dberror.c
-		dberror.h
-		expr.c
-		expr.h
-		record_mgr.h
-		rm_serializer.c
-		storage_mgr.h
-		tables.h
-		test_assign3_1.c
-		test_expr.c
-		test_helper.h
-----------------------------------------------------------
-
 (1) How to use the Makefile:
 ----------------------------------------------------------
 1.log in the fourier sever for IIT, cd to the correct address /home/class/fall-17/cs525/tmei1/assign3, or in your linux computer, open the terminal and cd to the address of the "assign3” where you put.
