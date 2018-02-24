@@ -1,4 +1,4 @@
-# Implementation of storage manager, buffer manager and record manager in database
+# Implementation of storage, buffer and record manager in database
 
 (1) How to use the Makefile:
 
